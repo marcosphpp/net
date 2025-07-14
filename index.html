@@ -1,19 +1,264 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Quiz para programadores</title>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProvedorNet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-    </head>
-    <body></body>
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
+    header {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
 
+    header p {
+      font-size: 1.2rem;
+    }
 
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
+    nav .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
 
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
+    nav a:hover {
+      color: #007bff;
+    }
 
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
 
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .plano {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin: 20px;
+      display: inline-block;
+      width: 280px;
+      vertical-align: top;
+    }
+
+    .plano h3 {
+      color: #007bff;
+    }
+
+    .plano ul {
+      text-align: left;
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
+    .plano button {
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .formulario {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .formulario input, .formulario select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .formulario button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .whatsapp i {
+      color: white;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ProvedorNet</h1>
+    <p>Internet rápida, estável e sem burocracia</p>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#planos">Planos</a>
+      <a href="#formulario">Solicitar</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+
+  <section id="planos">
+    <h2>Conheça nossos Planos</h2>
+    <div class="plano">
+      <h3>Plano Básico</h3>
+      <p><strong>200 Mega</strong></p>
+      <ul>
+        <li>Ideal para uso residencial</li>
+        <li>Streaming e redes sociais</li>
+        <li>Suporte técnico 24h</li>
+      </ul>
+      <button>Escolher</button>
+    </div>
+
+    <div class="plano">
+      <h3>Plano Turbo</h3>
+      <p><strong>400 Mega</strong></p>
+      <ul>
+        <li>Mais velocidade para toda a família</li>
+        <li>Games e vídeos em HD</li>
+        <li>Instalação grátis</li>
+      </ul>
+      <button>Escolher</button>
+    </div>
+
+    <div class="plano">
+      <h3>Plano Empresarial</h3>
+      <p><strong>600 Mega</strong></p>
+      <ul>
+        <li>Alta performance para empresas</li>
+        <li>Conexão dedicada</li>
+        <li>Atendimento preferencial</li>
+      </ul>
+      <button>Escolher</button>
+    </div>
+  </section>
+
+  <section id="formulario">
+    <h2>Solicite um Orçamento</h2>
+    <form id="formularioContato" class="formulario">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="text" id="endereco" placeholder="Endereço completo" required>
+      <input type="tel" id="telefone" placeholder="Telefone/WhatsApp" required>
+      <select id="planoDesejado">
+        <option value="" disabled selected>Selecione um plano</option>
+        <option value="200 Mega">200 Mega</option>
+        <option value="400 Mega">400 Mega</option>
+        <option value="600 Mega">600 Mega</option>
+      </select>
+      <button type="submit">Enviar para o WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="contato">
+    <h2>Fale Conosco</h2>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp: (99) 99999-9999</p>
+    <p><i class="fas fa-envelope"></i> Email: contato@provedornet.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ProvedorNet - Todos os direitos reservados.</p>
+  </footer>
+
+  <div class="whatsapp">
+    <a href="https://wa.me/5599999999999" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('formularioContato').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const endereco = document.getElementById('endereco').value;
+      const telefone = document.getElementById('telefone').value;
+      const plano = document.getElementById('planoDesejado').value;
+
+      if (!nome || !endereco || !telefone || !plano) {
+        Swal.fire('Preencha todos os campos!');
+        return;
+      }
+
+      const msg = `Olá! Gostaria de contratar um plano.\n\nNome: ${nome}\nEndereço: ${endereco}\nTelefone: ${telefone}\nPlano Desejado: ${plano}`;
+      const url = `https://wa.me/5599999999999?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+
+</body>
 </html>
-
-
